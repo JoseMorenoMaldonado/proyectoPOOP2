@@ -40,12 +40,17 @@ public class ConsultaCopasController implements Initializable {
     public TextField tfAno;
     @FXML
     public Button btConsultarC;
+    
+    public VBox vbaccion=new VBox();
+    
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+            vbrootcopas.setAlignment(Pos.TOP_CENTER);
+            vbaccion.setAlignment(Pos.BASELINE_CENTER);
             VBox vbtitulo=new VBox();
             vbtitulo.setAlignment(Pos.BASELINE_CENTER);
             vbtitulo.setPrefHeight(50);
@@ -64,7 +69,7 @@ public class ConsultaCopasController implements Initializable {
             });
             
             hbcopas.getChildren().addAll(lblAno,tfAno,btConsultarC);
-            vbrootcopas.getChildren().addAll(vbtitulo,hbcopas);
+            vbrootcopas.getChildren().addAll(vbtitulo,hbcopas,vbaccion);
             System.out.println(consultarCopas());
     }    
     public ArrayList<Copa> consultarCopas(){
@@ -93,6 +98,7 @@ public class ConsultaCopasController implements Initializable {
         return copas;
     }
     public void buscarMundial(){
+        vbaccion.getChildren().clear();
         consultarCopas().forEach(a->{
             if(tfAno.getText().equals(String.valueOf(a.getYear()))){
                 String ganador= a.getWinner();
@@ -105,19 +111,31 @@ public class ConsultaCopasController implements Initializable {
                 String asistenciaMundial= String.valueOf(a.getAttendance());
                 
                 HBox hb1=new HBox();
+                hb1.setAlignment(Pos.TOP_CENTER);
+                hb1.setSpacing(30);
                 VBox vb1=new VBox();
+                vb1.setAlignment(Pos.BASELINE_CENTER);
+                vb1.setSpacing(10);
                 VBox vb2=new VBox();
+                vb2.setAlignment(Pos.BASELINE_CENTER);
+                vb2.setSpacing(10);
                 HBox hb2=new HBox();
+                hb2.setSpacing(10);
                 HBox hb3=new HBox();
+                hb3.setSpacing(10);
                 HBox hb4=new HBox();
+                hb4.setSpacing(10);
                 HBox hb5=new HBox();
+                hb5.setSpacing(10);
                 HBox hb6=new HBox();
                 HBox hb7=new HBox();
                 HBox hb8=new HBox();
                 HBox hb9=new HBox();
                 
                 Label lblPremios=new Label("Premios");
+                lblPremios.setStyle("-fx-font: 15 arial;");
                 Label lblDatos=new Label("Datos generales");
+                lblDatos.setStyle("-fx-font: 15 arial;");
                 Label lblGanador=new Label("Ganador:");
                 Label lblSegundo=new Label("Segundo:");
                 Label lblTercero=new Label("Tercero:");
@@ -126,10 +144,10 @@ public class ConsultaCopasController implements Initializable {
                 Label lblEquipoSegundo=new Label(segundo);
                 Label lblEquipoTercero=new Label(tercero);
                 Label lblEquipoCuarto=new Label(cuarto);
-                Label lblGoles=new Label("Goles anotados:");
-                Label lblEquipos=new Label("Equipos:");
-                Label lblPartidos=new Label("Partidos Jugados:");
-                Label lblAsistencia=new Label("Asistencia");
+                Label lblGoles=new Label("Goles anotados: ");
+                Label lblEquipos=new Label("Equipos: ");
+                Label lblPartidos=new Label("Partidos Jugados: ");
+                Label lblAsistencia=new Label("Asistencia: ");
                 Label lblNGoles=new Label(golesTotales);
                 Label lblNEquipos=new Label(equiposTotales);
                 Label lblNPartidos=new Label(partidosTotales);
@@ -163,7 +181,7 @@ public class ConsultaCopasController implements Initializable {
                 vb1.getChildren().addAll(lblPremios,hb2,hb3,hb4,hb5);
                 vb2.getChildren().addAll(lblDatos,hb6,hb7,hb8,hb9);
                 hb1.getChildren().addAll(vb1,vb2);
-                vbrootcopas.getChildren().add(hb1);
+                vbaccion.getChildren().add(hb1);
                 
             }
         });
@@ -189,6 +207,8 @@ public class ConsultaCopasController implements Initializable {
             try(FileInputStream input=new FileInputStream(App.pathImg+"copa.jpg")){
                 Image img=new Image(input);
                 ImageView imgv=new ImageView(img);
+                imgv.setFitHeight(20);
+                imgv.setFitWidth(20);
                 hb.getChildren().add(imgv);
             }catch(IOException ex){
                 ex.printStackTrace();

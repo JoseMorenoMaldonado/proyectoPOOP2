@@ -9,19 +9,19 @@ package modelo;
  * @author Usurario
  */
 public class Partido {
-    int Year;
+    String Year;
     String Datetime;
     String Stage;
     String Stadium;
     String City;
     String HomeTeamName;
-    int HomeTeamGoals;
-    int AwayTeamGoals;
+    String HomeTeamGoals;
+    String AwayTeamGoals;
     String AwayTeamName;
-    boolean WinConditions;
-    int Attendance;
-    int HalfTimeHomeGoals;
-    int HalfTimeAwayGoals;
+    String WinConditions;
+    String Attendance;
+    String HalfTimeHomeGoals;
+    String HalfTimeAwayGoals;
     String Referee;
     String Assistant1;
     String Assistant2;
@@ -30,7 +30,7 @@ public class Partido {
     String HomeTeamInitials;
     String AwayTeamInitials;
 
-    public Partido(int Year, String Datetime, String Stage, String Stadium, String City, String HomeTeamName, int HomeTeamGoals, int AwayTeamGoals, String AwayTeamName, boolean WinConditions, int Attendance, int HalfTimeHomeGoals, int HalfTimeAwayGoals, String Referee, String Assistant1, String Assistant2, String RoundID, String MatchID, String HomeTeamInitials, String AwayTeamInitials) {
+    public Partido(String Year, String Datetime, String Stage, String Stadium, String City, String HomeTeamName, String HomeTeamGoals, String AwayTeamGoals, String AwayTeamName, String WinConditions, String Attendance, String HalfTimeHomeGoals, String HalfTimeAwayGoals, String Referee, String Assistant1, String Assistant2, String RoundID, String MatchID, String HomeTeamInitials, String AwayTeamInitials) {
         this.Year = Year;
         this.Datetime = Datetime;
         this.Stage = Stage;
@@ -53,11 +53,11 @@ public class Partido {
         this.AwayTeamInitials = AwayTeamInitials;
     }
 
-    public int getYear() {
+    public String getYear() {
         return Year;
     }
 
-    public void setYear(int Year) {
+    public void setYear(String Year) {
         this.Year = Year;
     }
 
@@ -101,19 +101,19 @@ public class Partido {
         this.HomeTeamName = HomeTeamName;
     }
 
-    public int getHomeTeamGoals() {
+    public String getHomeTeamGoals() {
         return HomeTeamGoals;
     }
 
-    public void setHomeTeamGoals(int HomeTeamGoals) {
+    public void setHomeTeamGoals(String HomeTeamGoals) {
         this.HomeTeamGoals = HomeTeamGoals;
     }
 
-    public int getAwayTeamGoals() {
+    public String getAwayTeamGoals() {
         return AwayTeamGoals;
     }
 
-    public void setAwayTeamGoals(int AwayTeamGoals) {
+    public void setAwayTeamGoals(String AwayTeamGoals) {
         this.AwayTeamGoals = AwayTeamGoals;
     }
 
@@ -125,35 +125,35 @@ public class Partido {
         this.AwayTeamName = AwayTeamName;
     }
 
-    public boolean isWinConditions() {
+    public String getWinConditions() {
         return WinConditions;
     }
 
-    public void setWinConditions(boolean WinConditions) {
+    public void setWinConditions(String WinConditions) {
         this.WinConditions = WinConditions;
     }
 
-    public int getAttendance() {
+    public String getAttendance() {
         return Attendance;
     }
 
-    public void setAttendance(int Attendance) {
+    public void setAttendance(String Attendance) {
         this.Attendance = Attendance;
     }
 
-    public int getHalfTimeHomeGoals() {
+    public String getHalfTimeHomeGoals() {
         return HalfTimeHomeGoals;
     }
 
-    public void setHalfTimeHomeGoals(int HalfTimeHomeGoals) {
+    public void setHalfTimeHomeGoals(String HalfTimeHomeGoals) {
         this.HalfTimeHomeGoals = HalfTimeHomeGoals;
     }
 
-    public int getHalfTimeAwayGoals() {
+    public String getHalfTimeAwayGoals() {
         return HalfTimeAwayGoals;
     }
 
-    public void setHalfTimeAwayGoals(int HalfTimeAwayGoals) {
+    public void setHalfTimeAwayGoals(String HalfTimeAwayGoals) {
         this.HalfTimeAwayGoals = HalfTimeAwayGoals;
     }
 
@@ -212,5 +212,6 @@ public class Partido {
     public void setAwayTeamInitials(String AwayTeamInitials) {
         this.AwayTeamInitials = AwayTeamInitials;
     }
+    
     
 }
