@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 /**
@@ -22,10 +23,16 @@ import javafx.stage.Stage;
  * @author Usurario
  */
 public class FXMLController implements Initializable {
-    @FXML
     public Button btnPartidos;
-    @FXML
     public Button btnCopas;
+    @FXML
+    private Label lblEquipo1Detalle;
+    @FXML
+    private HBox hbscroll1;
+    @FXML
+    private Label lblEquipo2Detalle;
+    @FXML
+    private HBox hbscroll2;
     /**
      * Initializes the controller class.
      */
@@ -48,8 +55,10 @@ public class FXMLController implements Initializable {
             }
         });
         }
-        
-    @FXML
+    /**
+     * Metodo que crea la ventana CONSULTA DE PARTIDOS
+     * @throws IOException 
+     */    
     public void consultarPartidos() throws IOException {
         FXMLLoader fxmlloader=new FXMLLoader(App.class.getResource("/com/mycompany/proyectopoo2p/ConsultaPartidos.fxml"));
         Parent rootPartidos=fxmlloader.load();
@@ -59,7 +68,10 @@ public class FXMLController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    @FXML
+    /**
+     * Metodo que crea la ventana CONSULTA DE COPAS
+     * @throws IOException 
+     */
     public void consultarCopas() throws IOException {
         FXMLLoader fxmlloader=new FXMLLoader(App.class.getResource("/com/mycompany/proyectopoo2p/ConsultaCopas.fxml"));
         Parent rootCopas=fxmlloader.load();

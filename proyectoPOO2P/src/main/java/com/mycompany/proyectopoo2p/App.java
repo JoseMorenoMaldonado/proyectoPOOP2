@@ -15,6 +15,7 @@ public class App extends Application {
     
     public static String pathImg="src/main/resources/recursos/imagenes/";
     public static String pathFiles="src/main/resources/recursos/archivos/";
+
     
 
 

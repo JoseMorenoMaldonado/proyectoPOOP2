@@ -71,7 +71,11 @@ public class ConsultaCopasController implements Initializable {
             hbcopas.getChildren().addAll(lblAno,tfAno,btConsultarC);
             vbrootcopas.getChildren().addAll(vbtitulo,hbcopas,vbaccion);
             System.out.println(consultarCopas());
-    }    
+    } 
+    /**
+     * Metodo que crea un ArrayList de objetos Copa
+     * @return ArrayList
+     */
     public ArrayList<Copa> consultarCopas(){
         ArrayList<Copa> copas=new ArrayList<>();
         try(BufferedReader br=new BufferedReader(new FileReader(new File(App.pathFiles+"WorldCups.csv")))){
@@ -97,6 +101,9 @@ public class ConsultaCopasController implements Initializable {
         }
         return copas;
     }
+    /**
+     * Metodo que muestra la informacion del mundial del año consultado
+     */
     public void buscarMundial(){
         vbaccion.getChildren().clear();
         consultarCopas().forEach(a->{
@@ -186,6 +193,11 @@ public class ConsultaCopasController implements Initializable {
             }
         });
     }
+    /**
+     * Metodo que asigna la bandera correspondiente a cada equipo
+     * @param nombreEquipo indica el nombre del equipo
+     * @param hb indica el contenedor donde se añade la imagen de la bandera
+     */
     public void llenarBanderas(String nombreEquipo, HBox hb){
         try(FileInputStream input=new FileInputStream(App.pathImg+nombreEquipo+".jpg")){
             Image img= new Image(input);
@@ -195,6 +207,11 @@ public class ConsultaCopasController implements Initializable {
             ex.printStackTrace();
         }
     }
+    /**
+     * Metodo que muestra las imagenes de copas correspondientes a cada equipo
+     * @param nombreEquipo indica el nombre del equipo
+     * @param hb indica el contenedor donde se añade las imagenes de copas
+     */
     public void llenarCopas(String nombreEquipo,HBox hb){
         int n=0;
         for(Copa c:consultarCopas()){

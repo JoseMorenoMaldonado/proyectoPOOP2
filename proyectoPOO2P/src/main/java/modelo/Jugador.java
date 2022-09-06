@@ -4,21 +4,22 @@
  */
 package modelo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Usurario
  */
-public class Jugador {
+public class Jugador implements Serializable{
     String roundID;
     String matchID;
     String teamInitials;
     String coachName;
-    char lineup;
-    int shirtNumber;
+    String lineup;
+    String shirtNumber;
     String playerName;
-    String position;
 
-    public Jugador(String roundID, String matchID, String teamInitials, String coachName, char lineup, int shirtNumber, String playerName, String position) {
+    public Jugador(String roundID, String matchID, String teamInitials, String coachName, String lineup, String shirtNumber, String playerName) {
         this.roundID = roundID;
         this.matchID = matchID;
         this.teamInitials = teamInitials;
@@ -26,7 +27,6 @@ public class Jugador {
         this.lineup = lineup;
         this.shirtNumber = shirtNumber;
         this.playerName = playerName;
-        this.position = position;
     }
 
     public String getRoundID() {
@@ -61,19 +61,19 @@ public class Jugador {
         this.coachName = coachName;
     }
 
-    public char getLineup() {
+    public String getLineup() {
         return lineup;
     }
 
-    public void setLineup(char lineup) {
+    public void setLineup(String lineup) {
         this.lineup = lineup;
     }
 
-    public int getShirtNumber() {
+    public String getShirtNumber() {
         return shirtNumber;
     }
 
-    public void setShirtNumber(int shirtNumber) {
+    public void setShirtNumber(String shirtNumber) {
         this.shirtNumber = shirtNumber;
     }
 
@@ -84,13 +84,7 @@ public class Jugador {
     public void setPlayerName(String playerName) {
         this.playerName = playerName;
     }
-
-    public String getPosition() {
-        return position;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
-    }
     
+    
+
 }
